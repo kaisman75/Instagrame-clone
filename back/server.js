@@ -1,20 +1,27 @@
-import express from "express";
-import mongoose  from "mongoose";
-import cors from "cors";
-import Pusher from "pusher";
 
+
+import express from "express";
+import mongoose from  "mongoose" ;
+import cors from "cors" ;
+import Pusher from"pusher" ;
+
+//configuration of dotenv with type :module
+import dotenv from 'dotenv';
+dotenv.config();
+//
 
 
 // app config
-const app=express();
+const app=express()
+
 const port= process.env.PORT||8080
 // Middlewares
 app.use(express.json()); 
 app.use(cors());
 
 //DB config
-const connection_url="mongodb+srv://dbKais:111919manai@cluster0.i7omy.mongodb.net/instagrameClone?retryWrites=true&w=majority"
-mongoose.connect(connection_url);
+
+mongoose.connect(process.env.DbURL);
 mongoose.connection.once("open",()=>{
     console.log("DB connected")
 })
