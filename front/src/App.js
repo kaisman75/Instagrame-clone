@@ -93,9 +93,9 @@ function App() {
   };
 
   return (
-    <div className="app">
+    < div className="app">
       <Modal open={open} onClose={() => setOpen(false)}>
-        <div style={modalStyle} className={classes.paper}>
+        < div style={modalStyle} className={classes.paper}>
           <form className="app__login">
             <center>
               <img
@@ -119,11 +119,11 @@ function App() {
             />
             <Button onClick={handleLogin}>Login</Button>
           </form>
-        </div>
+        </ div>
       </Modal>
 
       <Modal open={registerOpen} onClose={() => setRegisterOpen(false)}>
-        <div style={modalStyle} className={classes.paper}>
+        < div style={modalStyle} className={classes.paper}>
           <form className="app__login">
             <center>
               <img
@@ -152,33 +152,33 @@ function App() {
             />
             <Button onClick={handleRegister}>Register</Button>
           </form>
-        </div>
+        </ div>
       </Modal>
-      <div className="app__header">
+      < div className="app__header">
         <img
           className="app__headerImage"
           src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
           alt=""
         />
         {user?.displayName ? (
-          <div className="app__headerRight">
+          < div className="app__headerRight">
             <Button onClick={() => auth.signOut()}>Logout</Button>
             <Avatar
               className="app__headerAvatar"
               alt={user.displayName}
               src="/static/images/avatar/1.jpg"
             />
-          </div>
+          </ div>
         ) : (
           <form className="app__loginHome">
             <Button onClick={() => setOpen(true)}>Login</Button>
             <Button onClick={() => setRegisterOpen(true)}>Sign Up</Button>
           </form>
         )}
-      </div>
+      </ div>
 
-      <div className="app__posts">
-        <div className="app__postsLeft">
+      < div className="app__posts">
+        < div className="app__postsLeft">
           <FlipMove>
             {posts.map(({ id, post }) => (
               <Post
@@ -191,13 +191,13 @@ function App() {
               />
             ))}
           </FlipMove>
-        </div>
-        <div className="app__postsRight">
+        </ div>
+        < div className="app__postsRight">
           <InstagramEmbed
             url="https://www.instagram.com/p/B_uf9dmAGPw/"
             maxWidth={320}
             hideCaption={false}
-            containerTagName="div"
+            containerTagName=" div"
             protocol=""
             injectScript
             onLoading={() => {}}
@@ -205,19 +205,19 @@ function App() {
             onAfterRender={() => {}}
             onFailure={() => {}}
           />
-        </div>
-      </div>
+        </ div>
+      </ div>
 
       {user?.displayName ? (
-        <div className="app__upload">
+        < div className="app__upload">
           <ImageUpload username={user.displayName} />
-        </div>
+        </ div>
       ) : (
         <center>
           <h3>Login to upload</h3>
         </center>
       )}
-    </div>
+    </ div>
   );
 }
 
